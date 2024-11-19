@@ -13,41 +13,37 @@
  */
 
 
-const { choices } = require("yargs");
+// const { choices } = require("yargs");    <===== added by gitpod automatically - check why
 
-let game = {
-    score: 0,
+export const game = {
     currentGame: [],
     playerMoves: [],
-    choices: ["button1", "button2", "button3", "button4"],
+    score: 0,
+    choices: ["button1", "button2", "button3", "button4"]
 };
 
-function newGame() {
-    game.score = 0;
+export function newGame() {
     game.currentGame = [];
     game.playerMoves = [];
+    game.score = 0;
     showScore();
     addTurn();
-};
+}
 
-function showScore() {
-    document.getElementById("score").innerText = game.score;
-};
+export function addTurn() {
+    game.playerMoves = [];
+    game.currentGame.push(game.choices[(Math.floor(Math.random() * 4))]);
+}
 
-function addTurn() {
-    game.playerMoves = []; // clear playerMoves array
-    game.currentGame.push(game.choices[(Math.floor(Math.random() * 4))]); // Randomly add a button ID to the currentGame array
-    // showTurns(); // Call showTurns() function
-};
-
-function lightsOn(circ) {
+export function lightsOn(circ) {
     document.getElementById(circ).classList.add("light");
-    setTimeout(() => {
+    setTimeout(function () {
         document.getElementById(circ).classList.remove("light");
     }, 400);
-};
+}
 
-
-
+export function showScore() {
+    document.getElementById("score").innerText = game.score;
+}
 
 module.exports = { game, newGame, showScore, addTurn, lightsOn };
