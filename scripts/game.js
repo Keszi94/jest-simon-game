@@ -38,9 +38,16 @@ function addTurn() {
     game.playerMoves = []; // clear playerMoves array
     game.currentGame.push(game.choices[(Math.floor(Math.random() * 4))]); // Randomly add a button ID to the currentGame array
     // showTurns(); // Call showTurns() function
-}
+};
+
+function lightsOn(circ) {
+    document.getElementById(circ).classList.add("light");
+    setTimeout(() => {
+        document.getElementById(circ).classList.remove("light");
+    }, 400);
+};
 
 
 
 
-module.exports = { game, newGame, showScore, addTurn };
+module.exports = { game, newGame, showScore, addTurn, lightsOn };
