@@ -7,7 +7,7 @@
 // const { describe } = require("yargs");            <===== added by gitpod automatically - check why
 // const { default: test } = require("node:test");   <=====
 
-import { game, newGame, showScore, addTurn, lightsOn } from "../game";
+const { game, newGame, showScore, addTurn, lightsOn } = require("../game");
 
 beforeAll(() => {
     let fs = require("fs");
